@@ -25,8 +25,6 @@ namespace SoftwareVersion.Validators
                 '.'
             };
 
-            var consecutiveDecimals = false;
-
             for (int i = 1; i < value.ToString().Length; i++)
             {
                 var prev = value.ToString()[i - 1];

@@ -8,10 +8,11 @@ namespace SoftwareVersion.Logic
     public static class Version
     {
         /// <summary>
-        /// Compare two software versions, returning true if firstVersion is larger.
+        /// Compare two software versions, returning true if firstVersion is larger.  Will return false 
+        /// if both versions are equal.
         /// </summary>
-        /// <param name="firstVersion"></param>
-        /// <param name="secondVersion"></param>
+        /// <param name="firstVersion">Is this the larger version?</param>
+        /// <param name="secondVersion">Is this the smaller version?</param>
         /// <returns></returns>
         public static bool GreaterThan(string firstVersion, string secondVersion)
         {
@@ -72,17 +73,5 @@ namespace SoftwareVersion.Logic
             else
                 return bCount;
         }
-
-        private static int GetMinimum<T>(IEnumerable<T> a, IEnumerable<T> b)
-        {
-            var aCount = a.Count();
-            var bCount = b.Count();
-
-            if (aCount <= bCount)
-                return aCount;
-            else
-                return bCount;
-        }
-
     }
 }
