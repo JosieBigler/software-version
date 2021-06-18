@@ -10,12 +10,13 @@
         <label for="version">Version</label>
         <input type="text" name="version" />
         <button class="btn btn-primary">Submit</button>
+
     }
 
-
-    @Model.Version
 </div>
-
+<div class="text-center">
+    @Html.ValidationMessageFor(model => model.Version, "", new { @class = "text-danger" })
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -25,14 +26,14 @@
         </tr>
     </thead>
     <tbody>
-        @for(var i = 0; i < Model.Softwares.Count; i++)
+        @for (var i = 0; i < Model.Softwares.Count; i++)
         {
-        <tr>
-            <th scope="row">@(i + 1)</th>
-            <td>@Model.Softwares[i].Name</td>
-            <td>@Model.Softwares[i].Version</td>
+            <tr>
+                <th scope="row">@(i + 1)</th>
+                <td>@Model.Softwares[i].Name</td>
+                <td>@Model.Softwares[i].Version</td>
 
-        </tr>
+            </tr>
         }
     </tbody>
 </table>

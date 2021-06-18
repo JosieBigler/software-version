@@ -16,7 +16,7 @@ namespace SoftwareVersion.Test
             var firstVersion = "2.15.4";
             var secondVersion = "1";
 
-            var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
+            var results = Version.GreaterThan(firstVersion, secondVersion);
             Assert.AreEqual(true, results);
         }
 
@@ -26,7 +26,7 @@ namespace SoftwareVersion.Test
             var firstVersion = "2.15.4";
             var secondVersion = "13";
 
-            var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
+            var results = Version.GreaterThan(firstVersion, secondVersion);
             Assert.AreEqual(false, results);
         }
 
@@ -36,7 +36,7 @@ namespace SoftwareVersion.Test
             var firstVersion = "2.15.4.1.5.2.7";
             var secondVersion = "2.15.4.1.5.2.8";
 
-            var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
+            var results = Version.GreaterThan(firstVersion, secondVersion);
             Assert.AreEqual(false, results);
         }
 
@@ -46,28 +46,28 @@ namespace SoftwareVersion.Test
             var firstVersion = "13.15.4";
             var secondVersion = "13";
 
-            var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
+            var results = Version.GreaterThan(firstVersion, secondVersion);
             Assert.AreEqual(true, results);
         }
 
         [Test]
-        public void VersionCompare_VersionsAreEqual1_ReturnTrue()
+        public void VersionCompare_VersionsAreEqual1_ReturnFalse()
         {
             var firstVersion = "13.15.4";
             var secondVersion = "13.15.4";
 
-            var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
-            Assert.AreEqual(true, results);
+            var results = Version.GreaterThan(firstVersion, secondVersion);
+            Assert.AreEqual(false, results);
         }
 
         [Test]
-        public void VersionCompare_VersionsAreEqual2_ReturnTrue()
+        public void VersionCompare_VersionsAreEqual2_ReturnFalse()
         {
             var firstVersion = "0";
             var secondVersion = "0";
 
-            var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
-            Assert.AreEqual(true, results);
+            var results = Version.GreaterThan(firstVersion, secondVersion);
+            Assert.AreEqual(false, results);
         }
     }
 }

@@ -43,7 +43,15 @@ namespace SoftwareVersion.Controllers
 
         public IActionResult VersionInput(HomeViewModel model)
         {
-            model.Softwares = SoftwareManager.GetAllSoftware().Where(x => Logic.Version.GreaterThanOrEqual(x.Version, model.Version)).ToList();
+            if (ModelState.IsValid)
+            {
+                model.Version = model.Version ?? "0";
+                model.Softwares = SoftwareManager.GetAllSoftware().Where(x => Logic.Version.GreaterThan(x.Version, model.Version)).ToList();
+                return View("Index", model);
+
+            }
+
+            model.Softwares = new List<Software>();
             return View("Index", model);
         }
     }

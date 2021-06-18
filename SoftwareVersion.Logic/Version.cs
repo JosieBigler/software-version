@@ -13,7 +13,7 @@ namespace SoftwareVersion.Logic
         /// <param name="firstVersion"></param>
         /// <param name="secondVersion"></param>
         /// <returns></returns>
-        public static bool GreaterThanOrEqual(string firstVersion, string secondVersion)
+        public static bool GreaterThan(string firstVersion, string secondVersion)
         {
             var firstVersionArray = CreateArray(firstVersion);
             var secondVersionArray = CreateArray(secondVersion);
@@ -21,7 +21,7 @@ namespace SoftwareVersion.Logic
             var max = GetMaximum(firstVersionArray, secondVersionArray);
 
             var areEqual = true;
-            var firstIsLarger = true;
+            var firstIsLarger = false;
             var i = 0;
 
             do
