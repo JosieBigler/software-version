@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SoftwareVersion.Data\SoftwareVersion.Model.csproj" />
     <ProjectReference Include="..\SoftwareVersion.Logic\SoftwareVersion.Logic.csproj" />
+    <ProjectReference Include="..\SoftwareVersion.Model\SoftwareVersion.Model.csproj" />
   </ItemGroup>
 
 </Project>
