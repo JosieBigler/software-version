@@ -18,9 +18,9 @@ namespace SoftwareVersion.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(HomeViewModel model)
         {
-            return View();
+            return View(model);
         }
 
         public IActionResult Privacy()
@@ -32,6 +32,11 @@ namespace SoftwareVersion.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult VersionInput(HomeViewModel model)
+        {
+            return View("Index", model);
         }
     }
 }

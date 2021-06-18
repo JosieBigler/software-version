@@ -1,8 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
 }
+@model HomeViewModel
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @using (Html.BeginForm("VersionInput", "Home", FormMethod.Post))
+    {
+        <label for="version">Version</label>
+        <input type="text" name="version" />
+        <button class="btn btn-primary">Submit</button>
+    }
+
+    @Model.Version
 </div>
