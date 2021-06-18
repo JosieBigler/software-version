@@ -49,5 +49,25 @@ namespace SoftwareVersion.Test
             var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
             Assert.AreEqual(true, results);
         }
+
+        [Test]
+        public void VersionCompare_VersionsAreEqual1_ReturnTrue()
+        {
+            var firstVersion = "13.15.4";
+            var secondVersion = "13.15.4";
+
+            var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
+            Assert.AreEqual(true, results);
+        }
+
+        [Test]
+        public void VersionCompare_VersionsAreEqual2_ReturnTrue()
+        {
+            var firstVersion = "0";
+            var secondVersion = "0";
+
+            var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
+            Assert.AreEqual(true, results);
+        }
     }
 }

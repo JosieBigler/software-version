@@ -18,7 +18,7 @@ namespace SoftwareVersion.Logic
             var firstVersionArray = CreateArray(firstVersion);
             var secondVersionArray = CreateArray(secondVersion);
 
-            var minimum = GetMinimum(firstVersionArray, secondVersionArray);
+            var max = GetMaximum(firstVersionArray, secondVersionArray);
 
             var areEqual = true;
             var firstIsLarger = true;
@@ -46,7 +46,7 @@ namespace SoftwareVersion.Logic
                 }
 
                 i++;
-            } while (areEqual);
+            } while (areEqual && i < max);
 
             return firstIsLarger; 
         }
