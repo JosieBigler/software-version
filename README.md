@@ -1,5 +1,5 @@
 # software-version
-Simple software version displaying and searching website
+Simple software version displaying and searching website using MVC and .NET 5 
 
 Things I would implement with more time. 
 
