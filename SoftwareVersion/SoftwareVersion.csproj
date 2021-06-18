@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SoftwareVersion.Data\SoftwareVersion.Model.csproj" />
+    <ProjectReference Include="..\SoftwareVersion.Logic\SoftwareVersion.Logic.csproj" />
   </ItemGroup>
 
 </Project>

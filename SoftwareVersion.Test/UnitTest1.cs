@@ -16,7 +16,7 @@ namespace SoftwareVersion.Test
             var firstVersion = "2.15.4";
             var secondVersion = "1";
 
-            var results = Version.Compare(firstVersion, secondVersion);
+            var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
             Assert.AreEqual(true, results);
         }
 
@@ -26,7 +26,7 @@ namespace SoftwareVersion.Test
             var firstVersion = "2.15.4";
             var secondVersion = "13";
 
-            var results = Version.Compare(firstVersion, secondVersion);
+            var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
             Assert.AreEqual(false, results);
         }
 
@@ -36,8 +36,18 @@ namespace SoftwareVersion.Test
             var firstVersion = "2.15.4.1.5.2.7";
             var secondVersion = "2.15.4.1.5.2.8";
 
-            var results = Version.Compare(firstVersion, secondVersion);
+            var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
             Assert.AreEqual(false, results);
+        }
+
+        [Test]
+        public void VersionCompare_IndexOutofRange_ReturnTrue()
+        {
+            var firstVersion = "13.15.4";
+            var secondVersion = "13";
+
+            var results = Version.GreaterThanOrEqual(firstVersion, secondVersion);
+            Assert.AreEqual(true, results);
         }
     }
 }

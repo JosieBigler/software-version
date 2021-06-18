@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using SoftwareVersion.Model;
 using SoftwareVersion.Models;
+using SoftwareVersion.Logic;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -42,7 +43,7 @@ namespace SoftwareVersion.Controllers
 
         public IActionResult VersionInput(HomeViewModel model)
         {
-            model.Softwares = SoftwareManager.GetAllSoftware().ToList();
+            model.Softwares = SoftwareManager.GetAllSoftware().Where(x => Logic.Version.GreaterThanOrEqual(x.Version, model.Version)).ToList();
             return View("Index", model);
         }
     }

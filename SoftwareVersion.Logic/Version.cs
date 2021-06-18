@@ -7,7 +7,13 @@ namespace SoftwareVersion.Logic
 {
     public static class Version
     {
-        public static bool Compare(string firstVersion, string secondVersion)
+        /// <summary>
+        /// Compare two software versions, returning true if firstVersion is larger.
+        /// </summary>
+        /// <param name="firstVersion"></param>
+        /// <param name="secondVersion"></param>
+        /// <returns></returns>
+        public static bool GreaterThanOrEqual(string firstVersion, string secondVersion)
         {
             var firstVersionArray = CreateArray(firstVersion);
             var secondVersionArray = CreateArray(secondVersion);
@@ -20,10 +26,13 @@ namespace SoftwareVersion.Logic
 
             do
             {
-                
+                var first = 0;
+                if (firstVersionArray.Count > i)
+                    first = firstVersionArray[i];
 
-                var first = firstVersionArray[i];
-                var second = secondVersionArray[i];
+                var second = 0;
+                if (secondVersionArray.Count > i)
+                    second = secondVersionArray[i];
 
                 if (first < second)
                 {
@@ -33,19 +42,23 @@ namespace SoftwareVersion.Logic
                 else if (first > second)
                 {
                     areEqual = false;
-                    //firstIsLarger is already set to true, but lets make it explicit. 
                     firstIsLarger = true;
                 }
 
                 i++;
             } while (areEqual);
 
-
             return firstIsLarger; 
         }
 
         private static List<int> CreateArray(string version)
         {
+            if (version.EndsWith("."))
+                version = $"{version}0";
+
+            if (version.StartsWith("."))
+                version = $"0{version}";
+
             return version.Split('.').Select(n => Int32.Parse(n)).ToList();
         }
 
