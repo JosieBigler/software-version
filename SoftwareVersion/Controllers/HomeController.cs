@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SoftwareVersion.Model;
 using SoftwareVersion.Models;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,11 @@ namespace SoftwareVersion.Controllers
 
         public IActionResult Index(HomeViewModel model)
         {
+            if (model.Softwares is null)
+            {
+                model.Softwares = new List<Software>();
+            }
+
             return View(model);
         }
 
@@ -36,6 +42,7 @@ namespace SoftwareVersion.Controllers
 
         public IActionResult VersionInput(HomeViewModel model)
         {
+            model.Softwares = SoftwareManager.GetAllSoftware().ToList();
             return View("Index", model);
         }
     }
